@@ -1,0 +1,32 @@
+body {background:url('../fon/ic.gif')}
+
+#table {background:#597798; width: 100%; text-align: center;}
+
+
+#sort table {width:100%;}
+
+#tablebody {background:#EFEFEF}
+#array_length {}
+
+.header_tr td {background: #A2B5CD; font-size: 12pt; line-height: 18pt;}
+
+.w80 {width: 80px;}
+.w100 {width: 100px;}
+.w150 {width: 150px;}
+.w200 {width: 200px; font-size:5pt}
+
+H1 {font-size:25pt ;text-align:center}
+H2 {color:red; font-size:13pt ;text-align:center}
+
+#hidden_layer {top:50%; left:30%; z-index:2; position:fixed; background: white; border:1px solid #333; padding:10px; width:450px; text-align:center; display:none;}
+#hidden_layer a {color:#a2b5cd; text-decoration:none}
+#hidden_layer a:hover {text-decoration:underline}
+
+.floating {
+displei: #A2B5CD; font-size: 12pt; line-height: 18pt;width:99%;
+ }
+ .fixed {
+  position: fixed;
+  top: 0px; /*здесь указываем отступ сверху*/
+  z-index: 9999; /*устанавливаем блок поверх всех элементов на странице*/
+ }

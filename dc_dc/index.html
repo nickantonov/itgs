@@ -1,0 +1,152 @@
+﻿<head>
+
+ 
+ <meta http-equiv="Content-Script-Type" content="text/javascript" />
+
+ <title>Таблица по опознанию и подбору аналогов микросхем БП DC/DC</title>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+
+ <script language="JavaScript" type="text/javascript" src="array_code.js"></script>
+ <script language="JavaScript" type="text/javascript" src="array_data.js"></script>
+ <script language="JavaScript" type="text/javascript" src="sort.js"></script>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
+ <script type="text/javascript" src="fix.js"></script>
+ 
+ <link rel="Stylesheet" type="text/css" href="array.css" media="screen" />
+
+<!-- Подключаем библиотеку функций -->
+<script type="text/javascript" src="../ic_power/hltable.js"></script>
+
+<style type="text/css">
+  
+
+/* Определяем стили для подсвечивания строк */
+  .hoverRow { background-color: #A2B5CD; }
+  .clickedRow { background-color: #A2B5CD; }
+</style>
+
+
+
+</head>
+<body>
+
+<div id="hidden_layer"><div id="content"></div><a href="javascript://" onclick="this.parentNode.style.display='none'">Закрыть</a>
+</div>
+
+<BR><BR>
+<h1><font color="#597798" ><center><u>Таблица по опознанию и подбору аналогов микросхем БП DC/DC</u></center></font></h1><br>
+<h2>Добавить новые микросхемы, Data Sheet, аналоги и другую информацию Вы можете в <a href="../pda/forum/78-8003-1.html" target="_blank"><font color="#0000FF">этой теме</font></a></h2>
+
+
+ <table id="sort" cellpadding="0" cellspacing="0" border="0" align="center" >
+   <tr>
+<td class="w80" align="center" ><b><u></u></b></td>
+<td class="w80" align="center"><b>1</b>pin</td>
+<td class="w80" align="center"><b>2</b>pin</td>
+<td class="w80" align="center"><b>3</b>pin</td>
+<td class="w80" align="center"><b>4</b>pin</td>
+<td class="w80" align="center"><b>5</b>pin</td>
+<td class="w80" align="center"><b>6</b>pin</td>
+<td class="w80" align="center"><b>7</b>pin</td>
+<td class="w80" align="center"><b>8</b>pin</td>
+  <tr>
+    <td class="w200" ><img src="dcdc.jpg"  align="left" alt="Таблица по опознанию и подбору аналогов микросхем БП DC/DC"></td>
+    <td class="w80" align="center" ><select id="select_1" size="7" onchange="if(this.options[0].selected) clearSelect(this)" multiple="multiple"><option selected="selected" value="-1">-</option><option value="Vin">Vin</option><option value="SWout">SWout</option><option value="FB">FB</option><option value="ON/OFF">ON/OFF</option><option value="GND">GND</option><option value="NC">NC</option></select></td>
+    <td class="w80" align="center" ><select id="select_2" size="7" onchange="if(this.options[0].selected) clearSelect(this)" multiple="multiple"><option selected="selected" value="-1">-</option><option value="Vin">Vin</option><option value="SWout">SWout</option><option value="FB">FB</option><option value="ON/OFF">ON/OFF</option><option value="GND">GND</option><option value="NC">NC</option></select></td>
+    <td class="w80" align="center" ><select id="select_3" size="7" onchange="if(this.options[0].selected) clearSelect(this)" multiple="multiple"><option selected="selected" value="-1">-</option><option value="Vin">Vin</option><option value="SWout">SWout</option><option value="FB">FB</option><option value="ON/OFF">ON/OFF</option><option value="GND">GND</option><option value="NC">NC</option></select></td>
+    <td class="w80" align="center" ><select id="select_4" size="7" onchange="if(this.options[0].selected) clearSelect(this)" multiple="multiple"><option selected="selected" value="-1">-</option><option value="Vin">Vin</option><option value="SWout">SWout</option><option value="FB">FB</option><option value="ON/OFF">ON/OFF</option><option value="GND">GND</option><option value="NC">NC</option></select></td>
+    <td class="w80" align="center" ><select id="select_5" size="7" onchange="if(this.options[0].selected) clearSelect(this)" multiple="multiple"><option selected="selected" value="-1">-</option><option value="Vin">Vin</option><option value="SWout">SWout</option><option value="FB">FB</option><option value="ON/OFF">ON/OFF</option><option value="GND">GND</option><option value="NC">NC</option></select></td>
+    <td class="w80" align="center" ><select id="select_6" size="7" onchange="if(this.options[0].selected) clearSelect(this)" multiple="multiple"><option selected="selected" value="-1">-</option><option value="Vin">Vin</option><option value="SWout">SWout</option><option value="FB">FB</option><option value="ON/OFF">ON/OFF</option><option value="GND">GND</option><option value="NC">NC</option></select></td>
+ <td class="w80" align="center" ><select id="select_7" size="7" onchange="if(this.options[0].selected) clearSelect(this)" multiple="multiple"><option selected="selected" value="-1">-</option><option value="Vin">Vin</option><option value="SWout">SWout</option><option value="FB">FB</option><option value="ON/OFF">ON/OFF</option><option value="GND">GND</option><option value="NC">NC</option></select></td>
+ <td class="w80" align="center" ><select id="select_8" size="7" onchange="if(this.options[0].selected) clearSelect(this)" multiple="multiple"><option selected="selected" value="-1">-</option><option value="Vin">Vin</option><option value="SWout">SWout</option><option value="FB">FB</option><option value="ON/OFF">ON/OFF</option><option value="GND">GND</option><option value="NC">NC</option></select></td>
+ <td>&nbsp;&nbsp;&nbsp;<input type="submit" value="Отсортировать" onclick="Rebuild()">
+
+<BR><BR>
+&nbsp;&nbsp;&nbsp;<input type="button" value="Обновить" onclick="window.location.reload()" />
+</td>
+    <td></td>
+    <td></td>
+    <td></td>
+   </tr>
+  </table>
+  
+
+<p>Всего в базе <b><span id="array_length"></span></b>&nbsp;наименований. Обновление от 17/10/2017</p>
+
+<script language="JavaScript" type="text/javascript">
+var ads_direction = "h";
+var ads_count = "4";
+var ads_title_color = "#133F6A";
+var text_color = "#222222";
+var ads_link_color = "#0000FF";
+var ads_block_border = "1";
+var ads_block_border_color = "#ff0000";
+var ads_block_background = "#FFFFFF";
+var ads_block_padding = "1";
+var ads_border = "1";
+var ads_border_color = "#CCCCCC";
+var ads_background = "#D9E3F2";
+var ads_padding = "3";
+</script>
+<script src="http://a.edirect.efind.ru/s/?201&5&1" charset="utf-8"></script>
+<br>
+
+<table id="table">
+   <tr class="header_tr" >
+   <td width="182px"><b>Наименование</b><br><a href="javascript:allocator( 'name_weight' ); Rebuild();">&#8593;&#8595;</a></td>
+    <td width="100px"><b>Маркировка</b><br><a href="javascript:allocator( 'data_sheet_weight' ); Rebuild();">&#8593;&#8595;</a></td>
+    <td width="100px"><b>Корпус</b><br><a href="javascript:allocator( 'schematics_weight' ); Rebuild();">&#8593;&#8595;</a></td>
+    <td width="80px"><b>1pin</b><br><a href="javascript:allocator( 'vcc_weight' ); Rebuild();">&#8593;&#8595;</a></td>
+    <td width="80px"><b>2pin</b><br><a href="javascript:allocator( 'gnd_weight' ); Rebuild();">&#8593;&#8595;</a></td>
+    <td width="80px"><b>3pin</b><br><a href="javascript:allocator( 'fb_weight' ); Rebuild();">&#8593;&#8595;</a></td>
+    <td width="80px"><b>4pin</b><br><a href="javascript:allocator( 'drain_weight' ); Rebuild();">&#8593;&#8595;</a></td>
+    <td width="80px"><b>5pin</b><br><a href="javascript:allocator( 'nc_weight' ); Rebuild();">&#8593;&#8595;</a></td>
+    <td width="80px"><b>6pin</b><br><a href="javascript:allocator( 'drv_weight' ); Rebuild();">&#8593;&#8595;</a></td>
+    <td width="80px"><b>7pin</b><br><a href="javascript:allocator( 'aaa_weight' ); Rebuild();">&#8593;&#8595;</a></td>
+<td width="80px"><b>8pin</b><br><a href="javascript:allocator( 'sss_weight' ); Rebuild();">&#8593;&#8595;</a></td>
+<td width="100px"><b>Частота(кГц)</b><br><a href="javascript:allocator( 'doc_rus_weight' ); Rebuild();">&#8593;&#8595;</a></td>
+<td width="80px"><b>Ток(А)</b><br><a href="javascript:allocator( 'ddd_weight' ); Rebuild();">&#8593;&#8595;</a></td>
+    <td width="80px"><a href="javascript:allocator( 'same_weight' ); Rebuild();"></a><b>Аналог</b></td>
+   </tr>
+   <tbody id="tablebody" color="#376382"></tbody>
+  </table>
+
+<div class="floating">
+<table id="table">
+   <tr class="header_tr">
+   <td width="180px"><b>Наименование</b><br><a href="javascript:allocator( 'name_weight' ); Rebuild();">&#8593;&#8595;</a></td>
+    <td width="100px"><b>Маркировка</b><br><a href="javascript:allocator( 'data_sheet_weight' ); Rebuild();">&#8593;&#8595;</a></td>
+    <td width="100px"><b>Корпус</b><br><a href="javascript:allocator( 'schematics_weight' ); Rebuild();">&#8593;&#8595;</a></td>
+    <td width="80px"><b>1pin</b><br><a href="javascript:allocator( 'vcc_weight' ); Rebuild();">&#8593;&#8595;</a></td>
+    <td width="80px"><b>2pin</b><br><a href="javascript:allocator( 'gnd_weight' ); Rebuild();">&#8593;&#8595;</a></td>
+    <td width="80px"><b>3pin</b><br><a href="javascript:allocator( 'fb_weight' ); Rebuild();">&#8593;&#8595;</a></td>
+    <td width="80v"><b>4pin</b><br><a href="javascript:allocator( 'drain_weight' ); Rebuild();">&#8593;&#8595;</a></td>
+    <td width="80px"><b>5pin</b><br><a href="javascript:allocator( 'nc_weight' ); Rebuild();">&#8593;&#8595;</a></td>
+    <td width="80px"><b>6pin</b><br><a href="javascript:allocator( 'drv_weight' ); Rebuild();">&#8593;&#8595;</a></td>
+    <td width="80px"><b>7pin</b><br><a href="javascript:allocator( 'aaa_weight' ); Rebuild();">&#8593;&#8595;</a></td>
+<td width="80px"><b>8pin</b><br><a href="javascript:allocator( 'sss_weight' ); Rebuild();">&#8593;&#8595;</a></td>
+<td width="100px"><b>Частота(кГц)</b><br><a href="javascript:allocator( 'doc_rus_weight' ); Rebuild();">&#8593;&#8595;</a></td>
+<td width="80px"><b>Ток(А)</b><br><a href="javascript:allocator( 'ddd_weight' ); Rebuild();">&#8593;&#8595;</a></td>
+    <td width="80px"><a href="javascript:allocator( 'same_weight' ); Rebuild();"></a><b>Аналог</b></td>
+   </tr>
+  </table>
+	</div>
+
+
+<script language="JavaScript" type="text/javascript">
+  msNull(txt.length,true);
+  createTable( 0, "<", txt.length, "++" );
+  document.getElementById('array_length').innerHTML = txt.length;
+ </script>
+ 
+
+  <script type="text/javascript">
+//Подсветка по клику и при наведении мышки на ряд, множественный выбор по клику разрешен
+highlightTableRows("table","hoverRow","clickedRow");
+</script>
+
+<script type="text/javascript">allocator( 'name_weight' ); Rebuild();</script>
+<br>
+
+</body>
+</html>
